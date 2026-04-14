@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JNV Kaimur — Legal</title>
+    <meta name="description" content="Privacy Policy and Terms of Use for the JNV Kaimur app." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/legal.css" />
+    <style>
+      .links {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      .links a {
+        display: block;
+        font-family: var(--font-sans);
+        font-weight: 600;
+        padding: 1rem 1.25rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        text-decoration: none;
+        color: var(--ink);
+        box-shadow: 0 2px 12px rgba(15, 34, 26, 0.06);
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      }
+      .links a:hover {
+        border-color: var(--accent);
+        box-shadow: 0 6px 24px rgba(13, 110, 92, 0.12);
+      }
+      .links a span {
+        display: block;
+        font-weight: 400;
+        font-size: 0.875rem;
+        color: var(--muted);
+        margin-top: 0.35rem;
+      }
+      .hint {
+        font-family: var(--font-sans);
+        font-size: 0.8125rem;
+        color: var(--muted);
+        margin-top: 2rem;
+        padding: 1rem 1.15rem;
+        background: rgba(13, 110, 92, 0.06);
+        border-radius: 10px;
+        border: 1px dashed var(--border);
+        line-height: 1.6;
+      }
+      .hint code {
+        font-size: 0.78rem;
+        word-break: break-all;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="hero">
+        <div class="hero-inner">
+          <span class="badge">JNV Kaimur</span>
+          <h1>Legal documents</h1>
+          <p class="subtitle">
+            Privacy Policy and Terms of Use for the mobile app
+            <strong>JNV Kaimur</strong> (2k10 + LE).
+          </p>
+        </div>
+      </header>
+
+      <div class="card">
+        <p style="margin-bottom: 0">
+          Use the links below for <strong>Google Play Console</strong> and other
+          store listings. After enabling GitHub Pages, your public URLs will look
+          like:
+        </p>
+        <div class="links">
+          <a href="privacy-policy.html">
+            Privacy Policy
+            <span>Data practices, Firebase/Crashlytics, permissions, contact.</span>
+          </a>
+          <a href="terms-of-use.html">
+            Terms of Use
+            <span>Acceptable use, disclaimers, governing law.</span>
+          </a>
+        </div>
+
+        <div class="hint">
+          <strong>GitHub Pages:</strong> Repository &rarr; Settings &rarr; Pages
+          &rarr; Build and deployment: Deploy from branch &rarr; Branch:
+          <code>main</code> (or <code>master</code>) &rarr; Folder:
+          <code>/docs</code> &rarr; Save. Then your base URL is typically
+          <code>https://&lt;your-username&gt;.github.io/&lt;repo-name&gt;/</code>
+          and the Play Console links become e.g.
+          <code>.../privacy-policy.html</code> and
+          <code>.../terms-of-use.html</code>.
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>JNV Kaimur &middot; Tech Sparrow</p>
+      </footer>
+    </div>
+  </body>
+</html>

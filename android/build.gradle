@@ -1,0 +1,69 @@
+buildscript {
+    ext.kotlin_version = '1.9.24'
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.3.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+
+// Java 11: fixes just_audio javac -Werror + "source value 8 is obsolete" on JDK 17+.
+// Namespace: AGP 8 requires it on library modules; Flutter plugins may omit it.
+subprojects { subproject ->
+    subproject.plugins.withId('com.android.library') {
+        def a = subproject.android
+        if (!a.namespace || a.namespace.toString().trim().isEmpty()) {
+            def g = subproject.group?.toString()
+            a.namespace = (g != null && !g.trim().isEmpty())
+                ? g
+                : "com.flutter.plugins.${subproject.name}".replace('-', '_')
+        }
+    }
+}
+
+// Force Java/Kotlin 11 on all modules (plugins ship Java 8 + Kotlin 21 defaults → AGP 8 errors).
+subprojects { subproject ->
+    subproject.afterEvaluate {
+        def androidExt = subproject.extensions.findByName('android')
+        if (androidExt != null) {
+            androidExt.compileOptions {
+                sourceCompatibility JavaVersion.VERSION_11
+                targetCompatibility JavaVersion.VERSION_11
+            }
+        }
+        subproject.tasks.withType(JavaCompile).configureEach {
+            sourceCompatibility = JavaVersion.VERSION_11
+            targetCompatibility = JavaVersion.VERSION_11
+            options.compilerArgs.removeAll { it == '-Werror' }
+        }
+        subproject.tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+            kotlinOptions {
+                jvmTarget = '11'
+            }
+        }
+    }
+}
+
+subprojects {
+    project.evaluationDependsOn(':app')
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
