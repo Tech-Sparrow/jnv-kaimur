@@ -19,6 +19,8 @@ Version format follows the app `version` in `pubspec.yaml` (`<versionName>+<buil
 ### Changed
 
 - **App version**: `1.0.0+1` → **`2.0.0+2`** (`versionName` **2.0.0**, `versionCode` / build **2** for store monotonicity).
+- **Android `versionCode`**: **`3`** — new Play uploads must use a unique code not already on the listing (`2.0.0+3` in `pubspec.yaml`).
+- **Play / store builds**: `versionName` **2.0.1**, `versionCode` **5** (`2.0.1+5` in `pubspec.yaml`). **Do not** leave stale `flutter.versionCode` in `android/local.properties` — it overrides `pubspec.yaml` and causes “version code already used” errors.
 - **Android `ndkVersion`**: pinned to **25.1.8937393** where required by plugins.
 - **Java / Kotlin**: **Java 11** and **Kotlin JVM target 11** applied consistently across app and Android library modules (matches AGP 8 validation).
 - **iOS CocoaPods**: **static frameworks** (`use_frameworks! :linkage => :static`) and related build settings so plugin modules (e.g. `audio_session` / `just_audio`) and **Firebase** resolve cleanly on current Xcode.

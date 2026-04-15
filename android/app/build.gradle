@@ -27,8 +27,8 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
     namespace "com.techsparrow.jnv_kaimur"
-    // url_launcher_android and other plugins expect at least compileSdk 34.
-    compileSdkVersion 34
+    // Play policy: target/compile API 35+; compileSdk must be >= targetSdk.
+    compileSdkVersion 35
     // AGP 8 / Firebase: align with Flutter-recommended NDK when plugins require it.
     ndkVersion "25.1.8937393"
 
@@ -50,7 +50,7 @@ android {
         applicationId "com.techsparrow.jnv_kaimur"
         // package_info_plus and current plugins require minSdk >= 19; 21 matches modern Flutter templates.
         minSdkVersion 21
-        targetSdkVersion flutter.targetSdkVersion
+        targetSdkVersion 35
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }

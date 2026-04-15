@@ -4,7 +4,7 @@ Flutter app for the **Jawahar Navodaya Vidyalaya Kaimur** batch community: house
 
 | | |
 | --- | --- |
-| **Current version** | **2.0.0** (build **2**) — see [`pubspec.yaml`](pubspec.yaml) |
+| **Current version** | **2.0.1** (Android `versionCode` **5**) — see [`pubspec.yaml`](pubspec.yaml) |
 | **Dart package** | `jnvk` |
 | **Android** | `applicationId` / `namespace`: `com.techsparrow.jnv_kaimur` |
 | **iOS** | Bundle ID: `com.techsparrow.jnv_kaimur` |
